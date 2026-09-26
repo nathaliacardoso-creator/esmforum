@@ -1,0 +1,30 @@
+flowchart TD
+    A((Inicio)) --> B[Exibir pagina principal]
+    B --> C[Exibir campo de busca]
+    C --> D[Usuario informa uma palavra-chave]
+    D --> E[Usuario confirma a pesquisa]
+    E --> F{Campo esta preenchido?}
+
+    F -->|Nao| G[Exibir mensagem para informar uma palavra-chave]
+    G --> D
+
+    F -->|Sim| H[Enviar termo para a API]
+    H --> I{API e banco estao disponiveis?}
+
+    I -->|Nao| J[Exibir mensagem de falha]
+    J --> Z((Fim))
+
+    I -->|Sim| K[Validar e remover espacos do termo]
+    K --> L[Pesquisar no texto das perguntas]
+    L --> M{Existem resultados?}
+
+    M -->|Sim| N[Retornar perguntas encontradas]
+    N --> O[Exibir resultados]
+    O --> P{Usuario deseja pesquisar novamente?}
+
+    M -->|Nao| Q[Retornar lista vazia]
+    Q --> R[Exibir mensagem de nenhum resultado]
+    R --> P
+
+    P -->|Sim| D
+    P -->|Nao| Z
