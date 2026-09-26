@@ -1,0 +1,39 @@
+sequenceDiagram
+    autonumber
+
+    actor U as Usuario
+    participant F as Frontend React
+    participant A as API Express
+    participant M as Modelo
+    participant B as Banco SQLite
+
+    U->>F: Acessa a pagina principal
+    F->>A: Solicita lista de perguntas
+    A->>M: listar_perguntas()
+    M->>B: Consulta perguntas
+    B-->>M: Retorna perguntas
+    M-->>A: Retorna lista
+    A-->>F: Envia resposta JSON
+    F-->>U: Exibe perguntas e campo de busca
+
+    U->>F: Informa palavra-chave
+    U->>F: Confirma a pesquisa
+
+    alt Campo preenchido
+        F->>A: Solicita busca com o termo
+        A->>A: Valida o termo
+        A->>M: buscar_perguntas(termo)
+        M->>B: Consulta usando filtro LIKE
+        B-->>M: Retorna resultado
+        M-->>A: Retorna perguntas
+
+        alt Existem resultados
+            A-->>F: Retorna lista de perguntas
+            F-->>U: Exibe perguntas encontradas
+        else Nenhum resultado
+            A-->>F: Retorna lista vazia
+            F-->>U: Exibe nenhuma pergunta encontrada
+        end
+    else Campo vazio
+        F-->>U: Solicita uma palavra-chave
+    end
