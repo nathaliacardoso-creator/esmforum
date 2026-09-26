@@ -1,0 +1,26 @@
+stateDiagram-v2
+    direction LR
+
+    [*] --> Rascunho : usuario inicia cadastro
+
+    Rascunho --> Rascunho : usuario altera o texto
+    Rascunho --> Publicada : usuario publica
+    Rascunho --> Cancelada : usuario cancela
+
+    Publicada --> EmEdicao : usuario solicita edicao
+    EmEdicao --> Publicada : usuario salva alteracoes
+    EmEdicao --> Cancelada : usuario descarta alteracoes
+
+    Publicada --> ComRespostas : primeira resposta cadastrada
+    ComRespostas --> ComRespostas : nova resposta cadastrada
+
+    Publicada --> Arquivada : pergunta arquivada
+    ComRespostas --> Arquivada : pergunta arquivada
+
+    Publicada --> Removida : pergunta excluida
+    ComRespostas --> Removida : pergunta excluida
+    Arquivada --> Publicada : pergunta restaurada
+    Arquivada --> Removida : exclusao definitiva
+
+    Cancelada --> [*]
+    Removida --> [*]
