@@ -1,10 +1,5 @@
 # Caso de Uso: Buscar Perguntas por Palavra-chave
 
-## Identificação
-
-**Aluna:** Nathalia Cardoso
-**Curso:** Análise e Desenvolvimento de Sistemas  
-**Disciplina:** Engenharia de Software
 
 ## Nome do caso de uso
 
