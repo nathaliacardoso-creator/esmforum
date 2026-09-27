@@ -168,7 +168,3 @@ básica entre rotas, modelo e acesso ao banco de dados.
 As principais oportunidades de evolução estão na redução da dependência
 direta entre a lógica do sistema e o SQLite, além da separação de
 operações que hoje estão concentradas em uma única função.
-
-Na próxima tarefa, a funcionalidade de busca por palavra-chave será
-implementada com módulos separados, abstrações de repositório e uma
-estratégia de busca extensível.
