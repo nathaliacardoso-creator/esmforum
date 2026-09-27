@@ -1,0 +1,16 @@
+flowchart TD
+    A[Usuário no navegador] --> B[Frontend React]
+    B -->|HTTP / JSON| C[Backend Node.js + Express]
+
+    subgraph Backend
+        C --> D[Rotas e Controllers]
+        D --> E[Serviços / Regras de Negócio]
+        E --> F[Repositórios / Modelo]
+        F --> G[(SQLite)]
+    end
+
+    E --> H[Validação e processamento]
+    G --> F
+    F --> E
+    E --> D
+    D --> B
