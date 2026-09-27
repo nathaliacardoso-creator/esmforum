@@ -1,10 +1,5 @@
 # Análise de Design Simples
 
-## Identificação
-
-**Aluna:** Nathalia Cardoso
-**Curso:** Análise e Desenvolvimento de Sistemas  
-**Disciplina:** Engenharia de Software 
 
 ## Introdução
 
