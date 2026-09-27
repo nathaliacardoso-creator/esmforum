@@ -1,11 +1,5 @@
 # Instalação e execução do ESM Forum
 
-## Identificação
-
-**Aluna:** Nathalia Cardoso
-**Curso:** Análise e Desenvolvimento de Sistemas  
-**Disciplina:** Engenharia de Software 
-
 ## Tecnologias utilizadas
 
 O ESM Forum é composto por:
