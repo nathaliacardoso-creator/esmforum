@@ -1,11 +1,5 @@
 # Histórias de Usuário do ESM Forum
 
-## Identificação
-
-**Aluna:** Nathalia Cardoso
-**Curso:** Análise e Desenvolvimento de Sistemas  
-**Disciplina:** Engenharia de Software  
-
 ## Introdução
 
 Este documento apresenta três histórias de usuário relacionadas às
