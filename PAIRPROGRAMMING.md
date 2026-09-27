@@ -1,11 +1,5 @@
 # Planejamento de Pair Programming
 
-## Identificação
-
-**Aluna:** Nathalia Cardoso
-**Curso:** Análise e Desenvolvimento de Sistemas  
-**Disciplina:** Engenharia de Software 
-
 ## Introdução
 
 Pair Programming, ou programação em par, é uma prática da metodologia
