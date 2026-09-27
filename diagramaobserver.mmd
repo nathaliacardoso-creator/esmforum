@@ -1,0 +1,25 @@
+classDiagram
+    class Pergunta {
+        +id_pergunta
+        +texto
+        +adicionarObservador(obs)
+        +removerObservador(obs)
+        +notificarObservadores()
+    }
+
+    class ObservadorPergunta {
+        <<interface>>
+        +atualizar(pergunta, resposta)
+    }
+
+    class UsuarioObservador {
+        +atualizar(pergunta, resposta)
+    }
+
+    class RespostaService {
+        +adicionarResposta()
+    }
+
+    Pergunta --> ObservadorPergunta
+    ObservadorPergunta <|.. UsuarioObservador
+    RespostaService --> Pergunta

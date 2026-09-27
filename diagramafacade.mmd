@@ -1,0 +1,31 @@
+classDiagram
+    class ForumFacade {
+        +buscarPerguntas(termo)
+        +adicionarResposta(dados)
+    }
+
+    class BuscaService {
+        +buscar(termo)
+    }
+
+    class RespostaService {
+        +adicionarResposta(dados)
+    }
+
+    class NotificacaoService {
+        +notificarUsuarios(pergunta, resposta)
+    }
+
+    class PerguntaRepository {
+        +buscarPorTexto(termo)
+    }
+
+    class RespostaRepository {
+        +salvar(resposta)
+    }
+
+    ForumFacade --> BuscaService
+    ForumFacade --> RespostaService
+    ForumFacade --> NotificacaoService
+    BuscaService --> PerguntaRepository
+    RespostaService --> RespostaRepository
