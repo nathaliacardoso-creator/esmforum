@@ -1,6 +1,18 @@
 const express = require('express')
 const modelo = require('./modelo.js');
 
+const SQLitePerguntaRepository =
+  require('./repositories/SQLitePerguntaRepository');
+
+const BuscaPorPalavraChave =
+  require('./strategies/BuscaPorPalavraChave');
+
+const BuscaService =
+  require('./services/BuscaService');
+
+const BuscaController =
+  require('./controllers/BuscaController');
+
 const app = express()
 app.use(express.json());
 
@@ -9,6 +21,21 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
+});
+
+const perguntaRepository = new SQLitePerguntaRepository();
+
+const estrategiaBusca =
+  new BuscaPorPalavraChave(perguntaRepository);
+
+const buscaService =
+  new BuscaService(estrategiaBusca);
+
+const buscaController =
+  new BuscaController(buscaService);
+
+app.get('/perguntas/busca', (req, res) => {
+  buscaController.buscarPerguntas(req, res);
 });
 
 app.get('/', (req, res) => {
