@@ -1,0 +1,15 @@
+flowchart LR
+    A[Requisição HTTP] --> B[Controller]
+    B --> C[Model]
+    C --> D[(SQLite)]
+    C --> B
+    B --> E[View JSON]
+    E --> F[Resposta HTTP]
+
+    subgraph Funcionalidades
+        G[Busca de perguntas]
+        H[Cadastro de respostas]
+    end
+
+    B --> G
+    B --> H
